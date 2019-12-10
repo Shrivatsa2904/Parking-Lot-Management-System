@@ -1,0 +1,12 @@
+$hourToEatLastMeal = strtotime('00:30:00');
+$hourToEatWorkout = strtotime('01:30:00');
+$hourBetweenMeal = strtotime('07:30:00');
+$lastMealRequested = strtotime($row['lastMeal']); //22:00:00 //value getting from query.
+
+$startEating = $lastMealRequested - $hourToEatLastMeal ;//21:30:00 (want this answer)
+$timeToEat = $startEating- $hourBetweenMeal; //14:00:00 (want this answer)
+$whenToWorkout = $timeToEat - $hourToEatWorkout; //12:30:00 (want this answer)
+
+$whenToWorkout = date("H:i:s",($whenToWorkout));//12:30:00 (want this answer)
+$timeToEat = date("H:i:s",($timeToEat));//14:00:00 (want this answer)
+$startEating = date("H:i:s",($startEating));//21:30:00  (want this answer)
